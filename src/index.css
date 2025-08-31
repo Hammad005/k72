@@ -8,7 +8,7 @@
     font-family: font2;
     src: url(../fonts/Lausanne-500.woff2);
 }
-::-webkit-scrollbar{
-    background-color: transparent;
-    width: 1px;
+
+body{
+    overflow-x: hidden;
 }

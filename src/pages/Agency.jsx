@@ -24,18 +24,20 @@ const Agency = () => {
     'https://k72.ca/uploads/teamMembers/MEGGIE_480X640_2-480x640.jpg',
     'https://k72.ca/uploads/teamMembers/joel_480X640_3-480x640.jpg'
   ];
-
-  console.log(window.innerHeight);
   
   useGSAP(() => {
     gsap.to(imageDivRef.current, {
       scrollTrigger:{
         trigger: imageDivRef.current,
         markers: true,
-        start: 'top 18%',
-        end: window.innerHeight <= 700 ? "top -100%" : "top -35%",
+        end: window.innerHeight <= 700 ? "top -120%" : "top -25%",
         pin:true,
+        pinSpacing: true,
+        pinReparent: true,
+        pinType: "transform",
         scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         onUpdate: (e) => {
           let imageIndex;
           if (e.progress < 1) {
@@ -51,8 +53,8 @@ const Agency = () => {
   })
   return (
     <>
-    <div className="section1">
-      <div ref={imageDivRef} className="absolute h-[20vw] w-[15vw] lg:rounded-2xl rounded-lg top-36 left-[30vw] overflow-hidden">
+    <div className="section1 py-1">
+      <div ref={imageDivRef} className="absolute md:h-[20vw] md:w-[15vw] h-[40vw] w-[25vw] lg:rounded-2xl rounded-lg top-36 left-[30vw] overflow-hidden">
         <img ref={imageRef} className="h-full w-full object-cover" src="https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg" alt='photo1' />
       </div>
       <div className="relative font-[font2]">
