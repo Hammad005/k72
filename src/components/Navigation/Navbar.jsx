@@ -1,12 +1,15 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { NavbarContext } from "../../context/NavContext";
 
 const Navbar = () => {
   const location = useLocation();
   const navGreenRef = useRef(null);
+    const [navOpen,setNavOpen] = useContext(NavbarContext)
+  
   return (
     <>
-      <div className="flex justify-between fixed top-0 z-20 w-full">
+      <div className="flex justify-between fixed top-0 z-10 w-full">
         <Link
           to={"/"}
           className={`${
@@ -25,14 +28,16 @@ const Navbar = () => {
           </svg>
         </Link>
 
-        <div
+        <button
+          type="button"
+          onClick={() => setNavOpen(!navOpen)}
           onMouseEnter={() => {
             navGreenRef.current.style.height = "100%";
           }}
           onMouseLeave={() => {
             navGreenRef.current.style.height = "0%";
           }}
-          className="relative group bg-black  lg:w-[16.5vw] md:w-[30.5vw] w-[48.6vw] md:h-13 h-10.5"
+          className="relative cursor-pointer group bg-black  lg:w-[16.5vw] md:w-[30.5vw] w-[48.6vw] md:h-13 h-10.5"
         >
           <div
             ref={navGreenRef}
@@ -42,7 +47,7 @@ const Navbar = () => {
             <div className="h-[2px] rounded-full w-1/4 bg-white group-hover:bg-black"/>
             <div className="h-[2px] rounded-full w-1/8 bg-white group-hover:bg-black"/>
           </div>
-        </div>
+        </button>
       </div>
     </>
   );

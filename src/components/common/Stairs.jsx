@@ -31,7 +31,7 @@ const Stairs = ({ children }) => {
 
     tl.to(stairParentRef.current, {
       display: "none",
-    });
+    }, "-=0.7");
 
     tl.to(".stair", {
       y: "0%",
@@ -47,8 +47,7 @@ const Stairs = ({ children }) => {
     <div>
       <div ref={stairParentRef} className="h-screen w-full fixed z-50 top-0 ">
         <div
-          to={"/"}
-          className={`fixed top-0 fill-white lg:w-33 w-30 p-2.5`}
+          className={`fixed top-0 fill-white lg:w-33 w-30 p-2.5 z-50`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

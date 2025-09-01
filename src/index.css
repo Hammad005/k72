@@ -12,3 +12,19 @@
 body{
     overflow-x: hidden;
 }
+
+.moveX{
+    animation-name: moveAnimation;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes moveAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
