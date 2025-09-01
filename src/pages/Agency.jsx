@@ -30,6 +30,7 @@ const Agency = () => {
       scrollTrigger:{
         trigger: imageDivRef.current,
         markers: true,
+        start: "top top",
         end: window.innerHeight <= 700 ? "top -120%" : "top -25%",
         pin:true,
         pinSpacing: true,
