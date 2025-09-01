@@ -293,7 +293,7 @@ const FullScreenNav = () => {
               </div>
             </div>
           </div>
-          <div className="subText">
+          <div className="subText p-4">
             <p className="text-[10px] uppercase font-[font1] text-center">
               All rights reserved © K72
             </p>

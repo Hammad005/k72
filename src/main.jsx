@@ -7,10 +7,10 @@ import NavContext from "./context/NavContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <Stairs>
-      <NavContext>
+    <NavContext>
+      <Stairs>
         <App />
-      </NavContext>
-    </Stairs>
+      </Stairs>
+    </NavContext>
   </BrowserRouter>
 );

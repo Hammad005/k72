@@ -1,9 +1,13 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import { NavbarContext } from "../../context/NavContext";
 
 const Stairs = ({ children }) => {
+ 
+const [navOpen] = useContext(NavbarContext);
+  
   const currentPath = useLocation().pathname;
   const stairParentRef = useRef(null);
   const pageRef = useRef(null);
@@ -28,27 +32,31 @@ const Stairs = ({ children }) => {
         amount: -0.25,
       },
     });
-
-    tl.to(stairParentRef.current, {
-      display: "none",
-    }, "-=0.7");
+    tl.to(
+      stairParentRef.current,
+      {
+        display: "none",
+      },
+      "-=0.8"
+    );
 
     tl.to(".stair", {
       y: "0%",
     });
 
     gsap.from(pageRef.current, {
-        opacity:0,
-        delay:1.3,
-        scale:1.2
-    })
+      opacity: 0,
+      delay: 1.3,
+      scale: 1.2,
+    });
   }, [currentPath]);
   return (
-    <div>
-      <div ref={stairParentRef} className="h-screen w-full fixed z-50 top-0 ">
-        <div
-          className={`fixed top-0 fill-white lg:w-33 w-30 p-2.5 z-50`}
-        >
+    <>
+      <div
+        ref={stairParentRef}
+        className="h-screen w-full fixed z-[9999] top-0"
+      >
+        <div className={`fixed top-0 fill-white lg:w-33 w-30 p-2.5 z-[9999]`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-full"
@@ -66,10 +74,15 @@ const Stairs = ({ children }) => {
           ))}
         </div>
       </div>
-      <div ref={pageRef} className="overflow-hidden">
-      {children}
+      <div
+        ref={pageRef}
+        className={`${
+          navOpen && "h-screen w-screen"
+        } overflow-hidden`}
+      >
+        {children}
       </div>
-    </div>
+    </>
   );
 };
 
