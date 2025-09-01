@@ -6,7 +6,6 @@ import { NavbarContext } from "../../context/NavContext";
 
 const FullScreenNav = () => {
   const fullScreenNav = useRef(null);
-  const fullNavLinksref = useRef(null);
 
   const [navOpen, setNavOpen] = useContext(NavbarContext);
 
@@ -21,6 +20,10 @@ const FullScreenNav = () => {
         amount: -0.35,
       },
     });
+    tl.to(".navlink", {
+      opacity: 1,
+      rotateX: 0,
+    });
     tl.to(".link", {
       opacity: 1,
       rotateX: 0,
@@ -28,12 +31,17 @@ const FullScreenNav = () => {
         amount: 0.3,
       },
     });
-    tl.to(".navlink", {
+    tl.to(".subText", {
       opacity: 1,
+      rotateX: 0,
     });
   }
   function gsapAnimationReverse() {
     const tl = gsap.timeline();
+    tl.to(".subText", {
+      opacity: 0,
+      rotateX: 90,
+    });
     tl.to(".link", {
       opacity: 0,
       rotateX: 90,
@@ -41,15 +49,16 @@ const FullScreenNav = () => {
         amount: 0.1,
       },
     });
+    tl.to(".navlink", {
+      opacity: 0,
+      rotateX: 90,
+    });
     tl.to(".stairing", {
       height: 0,
       stagger: {
         amount: -0.35,
       },
     });
-    tl.to(".navlink", {
-      opacity: 0,
-    }, "-=1");
     tl.to(fullScreenNav.current, {
       display: "none",
     });
@@ -62,7 +71,7 @@ const FullScreenNav = () => {
       gsapAnimationReverse();
     }
   }, [navOpen]);
-  
+
   return (
     <>
       {/* FullScreenNav */}
@@ -71,15 +80,19 @@ const FullScreenNav = () => {
         className="hidden h-screen absolute w-full  text-white overflow-hidden z-50"
       >
         <div className="h-full w-full fixed">
-          <div className="h-full w-full flex">
+          <div className="h-full w-full grid grid-cols-6">
             {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="stairing h-full w-1/6 bg-black" />
+              <div key={index} className="stairing h-full  bg-black" />
             ))}
           </div>
         </div>
-        <div ref={fullNavLinksref} className="relative">
+        <div className="relative flex flex-col justify-between h-full">
           <div className="navlink flex justify-between items-start p-2 w-full">
-            <Link to={"/"} onClick={() => setNavOpen(false)} className={`fill-white lg:w-33 w-30 z-10`}>
+            <Link
+              to={"/"}
+              onClick={() => setNavOpen(false)}
+              className={`fill-white lg:w-33 w-30 z-10`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full"
@@ -279,6 +292,11 @@ const FullScreenNav = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="subText">
+            <p className="text-[10px] uppercase font-[font1] text-center">
+              All rights reserved © K72
+            </p>
           </div>
         </div>
       </div>
