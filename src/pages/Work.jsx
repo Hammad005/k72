@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import WorkCard from "../components/work/WorkCard";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 const Work = () => {
+  const sectionsRef = useRef([]);
   const workImages = [
     {
       image1:
@@ -58,37 +59,39 @@ const Work = () => {
 
   gsap.registerPlugin(ScrollTrigger);
   useGSAP(() => {
-    gsap.from('#hero', {
-      height: 0,
-      stagger: {
-        amount: 0.4
-      },
-      scrollTrigger:{
-        trigger: '#par',
-        markers: true,
-        start: "top 100%",
-        end: "top -150%",
-        scrub: true
-      }
-    })
+    sectionsRef.current?.forEach((section) => {
+      gsap.fromTo(section, 
+        {
+          height: 140,
+        },
+        {
+          height: 500,
+          scrollTrigger: {
+            trigger: section,
+            start: "top 70%",
+            end: `bottom top`,
+            scrub: true,
+        },
+        
+      });
+    });
   });
   return (
     <>
-      <div className="px-2">
-        <div className="md:pt-[40vh] pt-[60vh]">
+      <div className="px-2 lg:mt-[40vh] mt-[80vh]">
           <h2 className="font-[font2] md:text-[14vw] text-[18vw] uppercase flex gap-2">
             Work <span className="lg:text-5xl text-xl mt-5 lg:mt-15">16</span>
           </h2>
-        </div>
 
-        <div id="par" className="lg:-mt-20 md:-mt-10 -mt-5">
-          {workImages.map((image, index) => (
-            <div
-              key={index}
-              id="hero"
-              className="w-full h-[500px] mb-4 flex md:flex-row flex-col gap-4"
-            >
-              <WorkCard image1={image.image1} image2={image.image2} />
+        <div className="lg:-mt-20 md:-mt-10 -mt-5">
+          {workImages.map((image, i) => (
+            <div key={i} className="para w-full h-[500px] mb-4 relative">
+              <div
+                ref={(el) => (sectionsRef.current[i] = el)}
+                className="w-full h-[500px] flex gap-4 object-contain"
+              >
+                <WorkCard image1={image.image1} image2={image.image2} />
+              </div>
             </div>
           ))}
         </div>
