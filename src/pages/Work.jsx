@@ -1,6 +1,41 @@
 import React from "react";
+import WorkCard from "../components/work/WorkCard";
 
 const Work = () => {
+  const workImages = [
+    {
+      image1:"https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg",
+      image2:"https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg"
+    },
+    {
+      image1: "https://k72.ca/uploads/caseStudies/OKA/OKA_thumbnail-1280x960.jpg",
+      image2: "https://k72.ca/uploads/caseStudies/Opto_Reseau_Brand/opto_thumbnail2-1280x960.jpg",
+    },  
+    {
+      image1: "https://k72.ca/uploads/caseStudies/COUP_FUMANT/CF_thumbnail-1280x960.jpg",
+      image2: "https://k72.ca/uploads/caseStudies/SHELTON/thumbnailimage_shelton-1280x960.jpg",
+    },  
+    {
+      image1:"https://k72.ca/uploads/caseStudies/BEST/BEST_site_Thumbnail-1280x960.jpg",
+      image2:"https://k72.ca/uploads/caseStudies/A_table/thumbnailimage_atable2-1280x960.jpg",
+    },
+    {
+      image1: "https://k72.ca/uploads/caseStudies/SollioAg/thumbnailimage_SollioAg-1280x960.jpg",
+      image2: "https://k72.ca/uploads/caseStudies/LAMAJEURE_-_Son_sur_mesure/chalaxeur-thumbnail_img-1280x960.jpg",
+    },
+    {
+      image1: "https://k72.ca/uploads/caseStudies/OSM/thumbnailimage_OSM-1280x960.jpg",
+      image2: "https://k72.ca/uploads/caseStudies/BAnQ_100TEMPS/100temps_Thumbnail-1280x960.jpg",
+    },
+    {
+      image1: "https://k72.ca/uploads/caseStudies/CRISIS24/crisis24_behance_1920X1200_cartes-1280x960.jpg",
+      image2: "https://k72.ca/uploads/caseStudies/Opto/thumbnailimage_opto-1280x960.jpg",
+    },
+    {
+      image1: "https://k72.ca/uploads/caseStudies/PME-MTL/PME-MTL_Thumbnail-1280x960.jpg",
+      image2: "https://k72.ca/uploads/caseStudies/FRUITE/Fruite_thumbnail_bbq-1280x960.jpg",
+    }
+  ];
   return (
     <>
       <div className="px-2">
@@ -11,18 +46,10 @@ const Work = () => {
         </div>
 
         <div className="lg:-mt-20 md:-mt-10 -mt-5">
-          <div className="w-full h-[500px] mb-4 flex md:flex-row flex-col gap-4">
-            <div className="md:w-1/2 relative group h-full hover:rounded-[40px] overflow-hidden transition-all ease-in-out duration-300">
-            <img src="https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg" alt="img" className="h-full w-full object-cover" />
-            <div className="hidden group-hover:flex items-center justify-center absolute top-0 left-0 h-full w-full bg-black/50">
-              <h2 className="font-[font2] text-[4.5vw] text-white uppercase border-4 px-6 py-2  rounded-full">
-                View Project
-              </h2>
-            </div>
-            </div>
-          </div>
+          {workImages.map((image, index) => (
+          <WorkCard key={index}  image1={image.image1} image2={image.image2}/>
+          ))}
         </div>
-
       </div>
     </>
   );
