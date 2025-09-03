@@ -78,7 +78,7 @@ const Work = () => {
   });
   return (
     <>
-      <div className="px-2 lg:mt-[40vh] mt-[80vh]">
+      <div className="px-2 lg:pt-[40vh] pt-[80vh]">
           <h2 className="font-[font2] md:text-[14vw] text-[18vw] uppercase flex gap-2">
             Work <span className="lg:text-5xl text-xl mt-5 lg:mt-15">16</span>
           </h2>
