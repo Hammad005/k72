@@ -3,7 +3,7 @@ import React from "react";
 const WorkCard = ({image1,image2}) => {
   return (
     <>
-      <div className="w-full h-[500px] mb-4 flex md:flex-row flex-col gap-4">
+      
         <div className="md:w-1/2 relative group h-full hover:rounded-[40px] overflow-hidden transition-all ease-in-out duration-300">
           <img
             src={image1}
@@ -28,7 +28,6 @@ const WorkCard = ({image1,image2}) => {
             </h2>
           </div>
         </div>
-      </div>
     </>
   );
 };
