@@ -54,7 +54,7 @@ const Agency = () => {
   return (
     <>
     <div className="section1 py-1">
-      <div ref={imageDivRef} className="absolute md:h-[20vw] md:w-[15vw] h-[40vw] w-[25vw] lg:rounded-2xl rounded-lg top-36 left-[30vw] overflow-hidden">
+      <div ref={imageDivRef} className="absolute md:h-[20vw] md:w-[15vw] h-[40vw] w-[25vw] lg:rounded-2xl bg-[#D3FD50] rounded-lg top-36 left-[30vw] overflow-hidden">
         <img ref={imageRef} className="h-full w-full object-cover" src="https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg" alt='photo1' />
       </div>
       <div className="relative font-[font2]">

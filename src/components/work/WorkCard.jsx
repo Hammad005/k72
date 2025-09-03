@@ -4,7 +4,7 @@ const WorkCard = ({image1,image2}) => {
   return (
     <>
       
-        <div className="md:w-1/2 relative group h-full hover:rounded-[40px] overflow-hidden transition-all ease-in-out duration-300">
+        <div className="md:w-1/2 bg-[#D3FD50] relative group h-full hover:rounded-[40px] overflow-hidden transition-all ease-in-out duration-300">
           <img
             src={image1}
             alt="img"
@@ -16,7 +16,7 @@ const WorkCard = ({image1,image2}) => {
             </h2>
           </div>
         </div>
-        <div className="md:w-1/2 relative group h-full hover:rounded-[40px] overflow-hidden transition-all ease-in-out duration-300">
+        <div className="md:w-1/2 bg-[#D3FD50] relative group h-full hover:rounded-[40px] overflow-hidden transition-all ease-in-out duration-300">
           <img
             src={image2}
             alt="img"
